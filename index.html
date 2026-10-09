@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arash Khajeh</title>
+<meta name="description" content="Arash Khajeh is a Research Scientist at Toyota Research Institute building AI that speeds up scientific discovery and keeps people at the center of it.">
+<meta property="og:title" content="Arash Khajeh">
+<meta property="og:description" content="Arash Khajeh is a Research Scientist at Toyota Research Institute building AI that speeds up scientific discovery and keeps people at the center of it.">
+<meta property="og:type" content="profile">
+<link rel="canonical" href="https://arash-khajeh.github.io/">
+<meta property="og:url" content="https://arash-khajeh.github.io/">
+<meta property="og:image" content="https://arash-khajeh.github.io/images/share-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Arash Khajeh, Research Scientist at Toyota Research Institute">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2314202A'/%3E%3Ccircle cx='46' cy='18' r='7' fill='%23B0213A'/%3E%3Ctext x='30' y='44' font-family='Georgia,serif' font-size='30' fill='%23F4F6F5' text-anchor='middle'%3EAK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap">
+<style>
+/* Layout: one 1080px column. Hero = statement left, portrait right; a live MD strip divides hero from research.
+   Publications become a filterable ledger with year in a mono gutter. */
+:root{
+  --paper:#F4F6F5; --surface:#FFFFFF; --ink:#14202A; --muted:#55616B;
+  --line:#DCE2E0; --line-strong:#B9C3C1; --control:#7E8B8A;
+  --li:#B0213A;       /* lithium flame-test crimson: materials work, emphasis */
+  --li-soft:#F6E3E6;
+  --teal:#0E6B66;     /* human-centered work, links */
+  --teal-soft:#DDEEEC; --ion:#6A3FC8;
+  --f-display:"Newsreader", "Iowan Old Style", Georgia, serif;
+  --f-body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --step--1:0.875rem; --step-0:1.0625rem; --step-1:1.25rem; --step-2:1.6rem; --step-3:2.2rem; --step-4:clamp(2.6rem, 6vw, 4.2rem);
+  --r:6px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1417; --surface:#151D21; --ink:#E6ECEE; --muted:#9DABB2;
+    --line:#24313A; --line-strong:#3A4A53; --control:#6F808A;
+    --li:#F26B80; --li-soft:#3A1C23; --teal:#5FCAC1; --teal-soft:#14302F; --ion:#B49CFF; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1417; --surface:#151D21; --ink:#E6ECEE; --muted:#9DABB2;
+  --line:#24313A; --line-strong:#3A4A53; --control:#6F808A;
+  --li:#F26B80; --li-soft:#3A1C23; --teal:#5FCAC1; --teal-soft:#14302F; --ion:#B49CFF; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{font-size:clamp(100%, 1.05vw + 0.5rem, 150%); scroll-behavior:smooth; scroll-padding-top:5rem}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--f-body); font-size:var(--step-0); line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:68rem; margin:0 auto; padding-inline:clamp(16px, 4vw, 40px)}
+a{color:var(--teal); text-underline-offset:3px; text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--li); outline-offset:3px; border-radius:3px}
+h1,h2,h3{font-family:var(--f-display); font-weight:500; line-height:1.15; text-wrap:balance; margin:0}
+h2{font-size:var(--step-3); letter-spacing:-0.01em}
+h3{font-size:var(--step-1); font-weight:600}
+p{margin:0}
+.eyebrow{font-family:var(--f-mono); font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted)}
+.skip{position:absolute; left:-999px; top:8px; background:var(--surface); padding:8px 12px; z-index:10}
+.skip:focus{left:16px}
+
+/* header */
+.top{position:sticky; top:env(safe-area-inset-top, 0px); z-index:5; background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:saturate(1.4) blur(10px); -webkit-backdrop-filter:saturate(1.4) blur(10px); border-bottom:1px solid var(--line)}
+.top .wrap{display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:3.5rem; flex-wrap:wrap}
+.brand{font-family:var(--f-display); font-size:1.15rem; font-weight:600; color:var(--ink); text-decoration:none}
+.nav{display:flex; gap:clamp(10px, 2.4vw, 26px); flex-wrap:wrap}
+.nav a{color:var(--muted); text-decoration:none; font-size:0.95rem; padding-block:10px; display:inline-block}
+.nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{display:grid; grid-template-columns:minmax(0, 1.55fr) minmax(0, 1fr); gap:clamp(24px, 5vw, 64px); align-items:center;
+  padding-block:clamp(40px, 7vw, 88px) clamp(28px, 4vw, 44px)}
+.hero h1{font-size:var(--step-4); letter-spacing:-0.02em; font-weight:400}
+.hero h1 + .thesis{margin-top:14px}
+.thesis{font-family:var(--f-display); font-size:clamp(1.35rem, 2.6vw, 1.75rem); line-height:1.3; font-style:italic; color:var(--ink); max-width:32ch; text-wrap:balance}
+.thesis b{font-style:normal; font-weight:500; color:var(--li)}
+.bio{display:grid; gap:12px; margin-top:22px; max-width:62ch; color:var(--ink)}
+.bio p{color:var(--muted)}
+.bio p:first-child{color:var(--ink)}
+.actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px}
+.btn{display:inline-flex; align-items:center; gap:8px; padding:9px 16px; border-radius:999px; border:1px solid var(--control);
+  color:var(--ink); text-decoration:none; font-size:0.95rem; background:var(--surface)}
+.btn:hover{border-color:var(--ink)}
+.btn.primary{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.portrait{position:relative; aspect-ratio:4/5; max-width:21rem; width:100%; justify-self:end; border-radius:var(--r); overflow:hidden;
+  background:var(--teal-soft); border:1px solid var(--line)}
+.portrait img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.monogram{position:absolute; inset:0; display:grid; place-items:center; font-family:var(--f-display); font-size:5.5rem; color:var(--teal); letter-spacing:-0.04em}
+.portrait figcaption{position:absolute; left:0; right:0; bottom:0; padding:10px 14px; font-family:var(--f-mono); font-size:0.72rem; color:var(--muted);
+  background:linear-gradient(transparent, color-mix(in srgb, var(--surface) 92%, transparent))}
+
+/* MD strip */
+.md{margin-block:8px 0; border-block:1px solid var(--line); background:var(--surface)}
+.md canvas{display:block; width:100%; height:9.5rem}
+.md-cap{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-block:10px; font-family:var(--f-mono); font-size:0.8rem; color:var(--muted)}
+.md-cap .key{display:inline-flex; gap:14px; flex-wrap:wrap}
+.mini{font:inherit; font-size:0.8rem; margin-left:8px; padding:3px 10px; border-radius:999px; border:1px solid var(--control); background:var(--surface); color:var(--ink); cursor:pointer}
+.dot{display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px; vertical-align:middle}
+
+/* sections */
+section{padding-block:clamp(40px, 6vw, 72px)}
+.sec-head{display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:28px}
+.sec-head p{color:var(--muted); max-width:56ch}
+
+/* news */
+.news{display:grid; gap:0; border-top:1px solid var(--line)}
+.news li{display:grid; grid-template-columns:7.5rem minmax(0,1fr); gap:16px; padding-block:12px; border-bottom:1px solid var(--line)}
+.news time{font-family:var(--f-mono); font-size:0.82rem; color:var(--muted); padding-top:2px; font-variant-numeric:tabular-nums}
+ul{list-style:none; margin:0; padding:0}
+
+/* research tracks */
+.tracks{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:clamp(20px, 3vw, 32px)}
+.track{display:grid; gap:12px; align-content:start; padding-top:18px; border-top:3px solid var(--teal)}
+.track.mat{border-top-color:var(--li)}
+.track p{color:var(--muted)}
+.track .unit{font-family:var(--f-mono); font-size:0.8rem; color:var(--ink); background:var(--paper); border:1px solid var(--line); padding:2px 8px; border-radius:4px; justify-self:start}
+.foundation{margin-top:28px; padding:18px 20px; border:1px dashed var(--line-strong); border-radius:var(--r); color:var(--muted); max-width:none}
+.foundation strong{color:var(--ink)}
+.tools{display:flex; flex-wrap:wrap; gap:8px; margin-top:22px}
+.tools li{font-family:var(--f-mono); font-size:0.78rem; padding:3px 9px; border-radius:4px; background:var(--surface); border:1px solid var(--line); color:var(--muted)}
+
+/* selected work */
+.works{display:grid; gap:clamp(28px, 4vw, 40px)}
+.work{display:grid; grid-template-columns:minmax(0, 2fr) minmax(0, 3fr); gap:clamp(18px, 3vw, 36px); align-items:start}
+.work-media{margin:0; border-radius:var(--r); overflow:hidden; border:1px solid var(--line); background:var(--surface); aspect-ratio:16/10;
+  display:grid; place-items:center; max-width:100%}
+.work-media img{width:100%; height:100%; object-fit:contain; padding:6px}
+.work-media svg{width:100%; height:100%; display:block}
+.work-media.ill{background:#FFFFFF}
+.work-media.ill img{width:100%; height:100%; object-fit:cover; display:block}
+.fig-chart{background:var(--surface); border-radius:4px; padding:8px}
+.fig-chart svg{width:100%; height:auto; max-height:70vh; display:block}
+.credit .fig-open + .fig-open{margin-left:10px}
+.svg-t{font-family:var(--f-body); font-size:15px; fill:var(--ink)}
+.svg-strong{font-weight:700; fill:var(--li)}
+.svg-s{font-family:var(--f-mono); font-size:12.5px; fill:var(--muted)}
+.work-body{display:grid; gap:8px; min-width:0}
+.work-body > p:not(.eyebrow):not(.credit):not(.work-links){color:var(--muted); max-width:62ch}
+.work-links{display:flex; gap:18px; flex-wrap:wrap; margin-top:4px}
+.link-arrow{font-weight:700; text-decoration:none}
+.fig-open{font:inherit; font-weight:700; color:var(--teal); background:none; border:0; padding:0; cursor:pointer}
+dialog.fig{width:min(1000px, 94vw); max-height:92vh; border:1px solid var(--line); border-radius:8px; padding:16px; background:var(--surface); color:var(--ink)}
+dialog.fig::backdrop{background:rgba(8,12,15,0.62)}
+dialog.fig img{width:100%; height:auto; max-height:76vh; object-fit:contain; background:#FFFFFF; border-radius:4px}
+dialog.fig figure{margin:0; display:grid; gap:10px}
+dialog.fig figcaption{font-family:var(--f-mono); font-size:0.8rem; color:var(--muted)}
+.fig-bar{display:flex; justify-content:flex-end; margin-bottom:8px}
+.fig-bar button{font:inherit; font-size:0.9rem; padding:6px 14px; border-radius:999px; border:1px solid var(--control); background:var(--surface); color:var(--ink); cursor:pointer}
+.link-arrow::after{content:" →"}
+.link-arrow:hover{text-decoration:underline}
+.listen{display:grid; gap:8px; margin-top:6px; padding:12px 14px; border:1px solid var(--line); border-radius:var(--r); background:var(--surface); max-width:32rem}
+.listen-label{font-weight:700; font-size:0.95rem; display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 10px}
+.listen-label span{font-family:var(--f-mono); font-weight:400; font-size:0.78rem; color:var(--muted)}
+.listen audio{width:100%; display:block}
+.credit{font-size:0.8rem; color:var(--muted); font-family:var(--f-mono)}
+
+/* experience */
+.exp{display:grid; border-top:1px solid var(--line)}
+.exp li{display:grid; grid-template-columns:11rem minmax(0,1fr); gap:20px; padding-block:18px; border-bottom:1px solid var(--line)}
+.exp time{font-family:var(--f-mono); font-size:0.82rem; color:var(--muted); padding-top:3px; font-variant-numeric:tabular-nums}
+.exp h3{font-size:1.15rem}
+.exp .org{color:var(--ink); font-size:0.95rem; margin-top:2px}
+.exp .what{color:var(--muted); margin-top:8px; max-width:68ch; font-size:0.98rem}
+
+/* publications */
+.filters{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px}
+.chip{font:inherit; font-size:0.88rem; padding:8px 14px; min-height:40px; border-radius:999px; border:1px solid var(--control); background:var(--surface); color:var(--ink); cursor:pointer}
+.chip span{font-family:var(--f-mono); font-size:0.75rem; color:var(--muted); margin-left:4px}
+.chip[aria-pressed="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.chip[aria-pressed="true"] span{color:var(--paper); opacity:.75}
+.legend{font-size:0.82rem; color:var(--muted); margin-bottom:18px}
+.pubs{display:grid; border-top:1px solid var(--line)}
+.pub{display:grid; grid-template-columns:4rem minmax(0,1fr); gap:16px; padding-block:14px; border-bottom:1px solid var(--line)}
+.pub-year{font-family:var(--f-mono); font-size:0.85rem; color:var(--muted); padding-top:2px; font-variant-numeric:tabular-nums}
+.pub-body{display:grid; gap:3px; min-width:0}
+.pub-title{font-weight:700; line-height:1.4}
+.pub-title a{color:var(--ink); text-decoration:none}
+.pub-title a:hover{color:var(--teal); text-decoration:underline}
+.pub-authors{font-size:0.93rem; color:var(--muted)}
+.pub-authors strong{color:var(--ink)}
+.pub-venue{font-size:0.9rem; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 12px; align-items:baseline}
+.pub-cat{font-family:var(--f-mono); font-size:0.76rem; letter-spacing:0.05em; text-transform:uppercase}
+.pub[data-cat="ai"] .pub-cat{color:var(--li)}
+.pub[data-cat="trib"] .pub-cat{color:var(--teal)}
+.pub[data-cat="hcai"] .pub-cat{color:var(--ion)}
+.sel{font-family:var(--f-mono); font-size:0.76rem; text-transform:uppercase; letter-spacing:0.05em; padding:1px 7px; border-radius:4px; background:var(--li-soft); color:var(--li)}
+
+/* talks & patents */
+.two{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:clamp(24px, 4vw, 48px)}
+.two h3{margin-bottom:14px}
+.plain{display:grid; gap:14px}
+.plain li{display:grid; gap:2px}
+.plain .t{font-weight:700; line-height:1.4}
+.plain .t a{color:var(--ink); text-decoration:none}
+.plain .t a:hover{color:var(--teal); text-decoration:underline}
+.plain .m{font-size:0.9rem; color:var(--muted)}
+
+/* contact */
+.contact{border-top:1px solid var(--line); background:var(--surface)}
+.contact .wrap{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:32px; align-items:end}
+.contact h2{font-size:var(--step-3)}
+.contact p{color:var(--muted); margin-top:10px; max-width:52ch}
+.mail{display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:18px}
+.mail code{font-family:var(--f-mono); font-size:0.95rem; padding:8px 12px; border-radius:var(--r); border:1px solid var(--line); background:var(--paper); user-select:all; overflow-wrap:anywhere}
+.mail button{font:inherit; font-size:0.9rem; padding:8px 14px; border-radius:999px; border:1px solid var(--control); background:var(--surface); color:var(--ink); cursor:pointer}
+.status{font-size:0.85rem; color:var(--teal); min-height:1.2em}
+.profiles{display:grid; gap:10px; justify-items:start}
+footer{padding-block:22px; font-size:0.8rem; color:var(--muted); font-family:var(--f-mono); border-top:1px solid var(--line)}
+footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px}
+
+@media (max-width: 760px){
+  .hero{grid-template-columns:1fr}
+  .portrait{justify-self:start; max-width:220px; order:-1}
+  .tracks, .two, .contact .wrap{grid-template-columns:1fr}
+  .work{grid-template-columns:1fr}
+  .exp li{grid-template-columns:1fr; gap:4px}
+  .news li{grid-template-columns:1fr; gap:2px}
+  .pub{grid-template-columns:1fr; gap:4px}
+  .md canvas{height:120px}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Arash Khajeh", "jobTitle": "Research Scientist", "worksFor": {"@type": "Organization", "name": "Toyota Research Institute"}, "alumniOf": [{"@type": "CollegeOrUniversity", "name": "University of California, Merced"}, {"@type": "CollegeOrUniversity", "name": "Shiraz University"}], "sameAs": ["https://scholar.google.com/citations?user=y1fcaZsAAAAJ&hl=en", "https://www.linkedin.com/in/arash-khajeh-b4a28274/"]}</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Arash Khajeh</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#research">Research</a><a href="#work">Selected work</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap" id="top">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Research Scientist · Toyota Research Institute</p>
+        <h1>Arash Khajeh</h1>
+        <p class="thesis">I build AI that <b>speeds up scientific discovery</b> and keeps people at the center of it.</p>
+        <div class="bio">
+          <p>I'm a Research Scientist in the Human-Centered AI division at Toyota Research Institute (TRI). I work on agentic research systems that leave key decisions with the researcher, on generative agent simulations of workplace wellbeing, and on privacy-preserving models for workforce analytics.</p>
+          <p>From 2021 to 2025 I was on TRI's Accelerated Materials Design and Discovery team, where I paired generative models with automated molecular dynamics to design polymer electrolytes for batteries. Before that I earned a Ph.D. in Mechanical Engineering at UC Merced, using reactive simulations to study chemistry in sliding contacts.</p>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="#publications">Read my papers</a>
+          <a class="btn" href="https://scholar.google.com/citations?user=y1fcaZsAAAAJ&amp;hl=en">Google Scholar</a>
+          <a class="btn" href="https://www.linkedin.com/in/arash-khajeh-b4a28274/">LinkedIn</a>
+          <!-- To add your CV: put cv.pdf next to index.html and uncomment the next line -->
+          <!-- <a class="btn" href="cv.pdf">CV (PDF)</a> -->
+        </div>
+      </div>
+      <figure class="portrait">
+        <span class="monogram" aria-hidden="true">AK</span>
+        <!-- Replace images/headshot.jpg with your photo (4:5 crop works best) -->
+        <img src="images/headshot.jpg" alt="Portrait of Arash Khajeh" onerror="this.remove()">
+      </figure>
+    </div>
+  </div>
+
+  <div class="md" role="img" aria-label="Animation of lithium ions hopping between oxygen sites along a polymer chain">
+    <canvas id="md"></canvas>
+  </div>
+  <div class="wrap md-cap">
+    <span class="key"><span><i class="dot" style="background:var(--ion)"></i>Li⁺</span><span><i class="dot" style="background:var(--li)"></i>O</span><span><i class="dot" style="background:var(--muted)"></i>C</span><span><i class="dot" style="background:var(--line-strong); width:6px; height:6px"></i>H</span><span><i class="dot" style="border:1.4px solid var(--line-strong)"></i>TFSI⁻</span></span>
+    <span class="md-note">PEO, –(CH₂–CH₂–O)ₙ–, with Li⁺ held by ether oxygens. A toy animation, not a simulation. <button type="button" id="md-toggle" class="mini" aria-pressed="false">Pause animation</button></span>
+  </div>
+
+  <section id="news" aria-labelledby="news-h">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="news-h">News</h2></div>
+      <ul class="news"><li><time>Aug 2026</time><p>Our paper <a href="https://doi.org/10.3233/FAIA260538">Generative agent-based simulations of workforce wellbeing</a> is out in the HHAI 2026 proceedings (open access).</p></li>
+<li><time>Sep 2025</time><p>Joined TRI's Human-Centered AI division as a Research Scientist.</p></li>
+<li><time>Jan 2025</time><p>Our conditional generative framework for polymer electrolytes is out in <em>Digital Discovery</em>.</p></li>
+<li><time>2024</time><p><em>npj Computational Materials</em> paper on GPT- and diffusion-based polymer design published.</p></li>
+<li><time>Aug 2024</time><p>Invited talk at the Accelerate Conference in Vancouver, Canada.</p></li>
+<li><time>Mar 2024</time><p>Talks at ACS Spring in New Orleans and the Gordon Research Seminar on battery research in Ventura, CA.</p></li></ul>
+    </div>
+  </section>
+
+  <section id="research" aria-labelledby="research-h">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="research-h">Research</h2><p>Two threads with one idea: let AI do the heavy, repetitive parts of research, and keep people in charge of the choices that matter.</p></div>
+      <div class="tracks">
+        <div class="track">
+          <p class="eyebrow">Now · 2025–present</p>
+          <h3>Agentic and human-centered AI</h3>
+          <p>AI systems that carry out real research work while the researcher stays in control, plus generative agent simulations that help organizations test how workplace changes affect people before rolling them out. I also build privacy-preserving models (XGBoost, counterfactual analysis, causal synthetic data) for settings with strict data governance.</p>
+          <span class="unit">UKHLS &amp; MIDUS calibration · HHAI 2026</span>
+        </div>
+        <div class="track mat">
+          <p class="eyebrow">2021–2025</p>
+          <h3>AI for materials discovery</h3>
+          <p>Closed-loop pipelines that generate candidate polymers, simulate them with molecular dynamics, and learn from the results. Applied mainly to solid polymer electrolytes for Li-ion batteries, with collaborators at MIT.</p>
+          <span class="unit">target: ionic conductivity σ &gt; PEO at 353 K</span>
+        </div>
+      </div>
+      <p class="foundation"><strong>Foundation:</strong> my Ph.D. used ReaxFF reactive molecular dynamics to study tribochemistry, including shear-driven reactions, phosphate additives on iron oxide, friction at graphene step edges, and the thermal breakdown of ionic liquid lubricants. Earlier, I modeled manufacturing processes with finite element analysis.</p>
+      <ul class="tools" aria-label="Tools and methods"><li>Python</li><li>PyTorch</li><li>TensorFlow</li><li>scikit-learn</li><li>XGBoost</li><li>LangChain</li><li>RAG &amp; agentic LLMs</li><li>Diffusion models</li><li>GNNs</li><li>RDKit</li><li>pymatgen</li><li>LAMMPS</li><li>ReaxFF</li><li>AWS</li><li>Docker</li><li>HPC</li></ul>
+    </div>
+  </section>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="work-h">Selected work</h2></div>
+      <div class="works">
+<article class="work">
+  <figure class="work-media ill"><img src="images/ill-research-agent.jpg" alt="Illustration: four glass modules for papers, a hypothesis, a neural network and a written report, linked in a loop around a red control that a person&#x27;s hand is pressing" loading="lazy" width="1200" height="750"></figure>
+  <div class="work-body">
+    <p class="eyebrow">Human-centered AI · 2025–present</p>
+    <h3>A research agent that keeps the researcher in charge</h3>
+    <p>A semi-autonomous system that searches the literature, generates hypotheses, designs and builds ML pipelines, and writes up findings. It is built to work alongside researchers rather than replace them.</p>
+    
+    
+  </div>
+</article>
+<article class="work">
+  <figure class="work-media ill"><img src="images/ill-workforce-wellbeing.jpg" alt="Illustration: a miniature office where a teal wave passes across faceless figurines, and figures it has reached glow teal" loading="lazy" width="1200" height="750"></figure>
+  <div class="work-body">
+    <p class="eyebrow">HHAI 2026 · first &amp; corresponding author</p>
+    <h3>Generative agent-based simulations of workforce wellbeing</h3>
+    <p>An LLM writes each simulated employee's monthly reasoning and state changes, kept within human-designed limits: a wellbeing ontology built from established survey instruments, with monthly change bounds calibrated to UKHLS and MIDUS panel data. That lets us replay workplace shocks under different interventions. After an unfair promotion decision, pairing structural changes with transparent communication cut the share of high-risk agents from 35% to 6%.</p>
+    <p class="work-links"><a class="link-arrow" href="https://doi.org/10.3233/FAIA260538" aria-label="Paper: Generative agent-based simulations of workforce wellbeing">Paper</a></p>
+    <div class="listen">
+      <p class="listen-label">Listen: 5-minute audio summary<span>AI-generated with NotebookLM</span></p>
+      <audio controls preload="none" src="audio/hhai2026-workforce-wellbeing.mp3" aria-label="Audio summary: generative agent-based simulations of workforce wellbeing">Your browser can't play this audio. <a href="audio/hhai2026-workforce-wellbeing.mp3">Open the audio file</a>.</audio>
+    </div>
+    <p class="credit"><button type="button" class="fig-open" data-tpl="chart-hhai" data-credit="Share of simulated agents at high risk in the final month, by intervention. Drawn from Table 1, Khajeh et al., HHAI 2026 (CC BY-NC 4.0).">View results chart</button></p>
+  </div>
+</article>
+<article class="work">
+  <figure class="work-media ill"><img src="images/ill-discovery-loop.jpg" alt="Illustration: a circular track linking a polymer generator, a molecular dynamics simulation box and a sorting gate that sends the best polymer chains back to the start" loading="lazy" width="1200" height="750"></figure>
+  <div class="work-body">
+    <p class="eyebrow">Digital Discovery · 2025 · corresponding author</p>
+    <h3>A self-improving loop for discovering polymer electrolytes</h3>
+    <p>A conditional generative model proposes polymers, automated molecular dynamics simulations evaluate them, and the results feed the next round. In two cycles the loop found polymers with ionic conductivity above PEO, the standard reference material.</p>
+    <p class="work-links"><a class="link-arrow" href="https://doi.org/10.1039/D4DD00293H" aria-label="Paper: A self-improving loop for discovering polymer electrolytes">Paper</a> <a class="link-arrow" href="https://medium.com/toyotaresearch/designing-new-polymers-with-ai-31645c39316b" aria-label="Blog post: A self-improving loop for discovering polymer electrolytes">Blog post</a></p>
+    <p class="credit"><button type="button" class="fig-open" data-tpl="chart-dd" data-credit="Simplified redraw of Fig. 3, Khajeh et al., Digital Discovery 2025: conductivity of generated polymers in two cycles against the PEO reference.">View results chart</button> <button type="button" class="fig-open" data-src="images/dd2025-conductivity.jpg" data-alt="Box plots of ionic conductivity at 353 K for polymers generated in two iterative cycles, many above the PEO baseline" data-credit="Fig. 3 from Khajeh et al., Digital Discovery 4, 11–20 (2025). CC BY-NC 4.0.">View original figure</button></p>
+  </div>
+</article>
+<article class="work">
+  <figure class="work-media ill"><img src="images/ill-gpt-diffusion.jpg" alt="Illustration: a stream of token tiles on the left and a cloud of atoms on the right both forming one glowing polymer chain with lithium ions" loading="lazy" width="1200" height="750"></figure>
+  <div class="work-body">
+    <p class="eyebrow">npj Computational Materials · 2024 · corresponding author</p>
+    <h3>GPT and diffusion models for de novo polymer electrolytes</h3>
+    <p>A comparison of GPT-based and diffusion-based generative models for designing solid polymer electrolytes, scored on validity, novelty, diversity and synthesizability. MD simulations of the generated polymers show a clear shift toward higher ionic conductivity than the training data.</p>
+    <p class="work-links"><a class="link-arrow" href="https://doi.org/10.1038/s41524-024-01470-9" aria-label="Paper: GPT and diffusion models for de novo polymer electrolytes">Paper</a></p>
+    <div class="listen">
+      <p class="listen-label">Listen: 6-minute audio summary<span>AI-generated with NotebookLM</span></p>
+      <audio controls preload="none" src="audio/npj2024-generative-polymers.mp3" aria-label="Audio summary: GPT and diffusion models for polymer electrolytes">Your browser can't play this audio. <a href="audio/npj2024-generative-polymers.mp3">Open the audio file</a>.</audio>
+    </div>
+    <p class="credit"><button type="button" class="fig-open" data-src="images/npj2024-md-validation.jpg" data-alt="MD validation workflow and plots showing generated polymers shifted toward higher ionic conductivity than the training set" data-credit="Fig. 4 from Yang et al., npj Computational Materials 10, 296 (2024). CC BY-NC-ND 4.0, reproduced unmodified.">View original figure</button></p>
+  </div>
+</article>
+<article class="work">
+  <figure class="work-media ill"><img src="images/ill-early-prediction.jpg" alt="Illustration: a box of polymer chains and lithium ions feeding a long transparent tube, with only the first section lit and a red marker projecting to the far end" loading="lazy" width="1200" height="750"></figure>
+  <div class="work-body">
+    <p class="eyebrow">Macromolecules · 2023 · first author</p>
+    <h3>Predicting ion transport before the simulation finishes</h3>
+    <p>Machine learning on descriptors of system behavior from early in an MD run predicts the final ion transport properties of solid polymer electrolytes, cutting the simulation time needed for each screening candidate.</p>
+    <p class="work-links"><a class="link-arrow" href="https://doi.org/10.1021/acs.macromol.3c00416" aria-label="Paper: Predicting ion transport before the simulation finishes">Paper</a></p>
+    
+  </div>
+</article>
+<article class="work">
+  <figure class="work-media ill"><img src="images/ill-step-friction.jpg" alt="Illustration: an atomic force microscope tip touching the step edge between two layers of hexagonal graphite lattice" loading="lazy" width="1200" height="750"></figure>
+  <div class="work-body">
+    <p class="eyebrow">Science Advances · 2019 · co-first author</p>
+    <h3>Why friction spikes at atomic steps</h3>
+    <p>Atomic force microscopy experiments and reactive MD simulations separate the chemical and physical contributions to friction at graphene step edges. This came out of my Ph.D. work with Prof. Ashlie Martini at UC Merced.</p>
+    <p class="work-links"><a class="link-arrow" href="https://doi.org/10.1126/sciadv.aaw0513" aria-label="Paper: Why friction spikes at atomic steps">Paper</a></p>
+    
+  </div>
+</article>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications" aria-labelledby="pubs-h">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="pubs-h">Publications</h2><p>27 papers, reviews and preprints. The full, up-to-date list is on <a href="https://scholar.google.com/citations?user=y1fcaZsAAAAJ&amp;hl=en">Google Scholar</a>.</p></div>
+      <div class="filters" role="group" aria-label="Filter publications">
+        <button class="chip" type="button" data-f="all" aria-pressed="true">All<span>27</span></button>
+        <button class="chip" type="button" data-f="sel" aria-pressed="false">Selected<span>5</span></button>
+        <button class="chip" type="button" data-f="hcai" aria-pressed="false">Human-centered AI<span>1</span></button>
+        <button class="chip" type="button" data-f="ai" aria-pressed="false">AI &amp; materials<span>6</span></button>
+        <button class="chip" type="button" data-f="trib" aria-pressed="false">Reactive MD &amp; tribology<span>16</span></button>
+        <button class="chip" type="button" data-f="fea" aria-pressed="false">FEA &amp; manufacturing<span>4</span></button>
+      </div>
+      <p class="legend"><span id="pub-count" aria-live="polite">Showing 27 of 27</span> · * corresponding author · ‡ § equal contribution</p>
+      <ul class="pubs">
+<li class="pub" data-cat="hcai" data-sel="1">
+  <span class="pub-year">2026</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.3233/FAIA260538">Generative agent-based simulations of workforce wellbeing</a></p>
+    <p class="pub-authors"><strong>Khajeh A*</strong>, Jayawardana V, Lau T, Santos L, Sieck K</p>
+    <p class="pub-venue"><em>HHAI 2026: Proceedings of the 5th International Conference on Hybrid Human-Artificial Intelligence</em>, Frontiers in Artificial Intelligence and Applications <span class="pub-cat">Human-centered AI</span><span class="sel" title="Selected publication">Selected</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="ai" data-sel="1">
+  <span class="pub-year">2025</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1039/D4DD00293H">A materials discovery framework based on conditional generative models applied to the design of polymer electrolytes</a></p>
+    <p class="pub-authors"><strong>Khajeh A‡*</strong>, Lei X‡, Ye W‡, Yang Z, Hung L, Schweigert D, Kwon HK</p>
+    <p class="pub-venue"><em>Digital Discovery 4, 11–20</em> <span class="pub-cat">AI & materials</span><span class="sel" title="Selected publication">Selected</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="ai" data-sel="1">
+  <span class="pub-year">2024</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1038/s41524-024-01470-9">De novo design of polymer electrolytes using GPT-based and diffusion-based generative models</a></p>
+    <p class="pub-authors">Yang Z, Ye W, Lei X, Schweigert D, Kwon HK, <strong>Khajeh A*</strong></p>
+    <p class="pub-venue"><em>npj Computational Materials 10, 296</em> <span class="pub-cat">AI & materials</span><span class="sel" title="Selected publication">Selected</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="ai" data-sel="0">
+  <span class="pub-year">2023</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://arxiv.org/abs/2312.04013">A self-improvable polymer discovery framework based on conditional generative model</a></p>
+    <p class="pub-authors">Lei X, Ye W, Yang Z, Schweigert D, Kwon HK, <strong>Khajeh A*</strong></p>
+    <p class="pub-venue"><em>arXiv:2312.04013 (preprint)</em> <span class="pub-cat">AI & materials</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="ai" data-sel="0">
+  <span class="pub-year">2023</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1063/5.0160937">A cloud platform for sharing and automated analysis of raw data from high throughput polymer MD simulations</a></p>
+    <p class="pub-authors">Xie T, Kwon HK, Schweigert D, Gong S, France-Lanord A, <strong>Khajeh A</strong>, Crabb E, Puzon M, Fajardo C, Powelson W, Shao-Horn Y, Grossman JC</p>
+    <p class="pub-venue"><em>APL Machine Learning 1, 046108</em> <span class="pub-cat">AI & materials</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="ai" data-sel="1">
+  <span class="pub-year">2023</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1021/acs.macromol.3c00416">Early prediction of ion transport properties in solid polymer electrolytes using machine learning and system behavior-based descriptors of molecular dynamics simulations</a></p>
+    <p class="pub-authors"><strong>Khajeh A</strong>, Schweigert D, Torrisi SB, Hung L, Storey BD, Kwon HK</p>
+    <p class="pub-venue"><em>Macromolecules 56(13), 4787–4799</em> <span class="pub-cat">AI & materials</span><span class="sel" title="Selected publication">Selected</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="ai" data-sel="0">
+  <span class="pub-year">2023</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1063/5.0149804">Materials cartography: A forward-looking perspective on materials representation and devising better maps</a></p>
+    <p class="pub-authors">Torrisi SB, Bazant MZ, Cohen AE, Cho MG, Hummelshøj JS, Hung L, Kamat G, <strong>Khajeh A</strong>, et al.</p>
+    <p class="pub-venue"><em>APL Machine Learning 1, 020901</em> <span class="pub-cat">AI & materials</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="trib" data-sel="0">
+  <span class="pub-year">2022</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1016/j.molliq.2022.118700">Thermal decomposition of phosphonium salicylate and phosphonium benzoate ionic liquids</a></p>
+    <p class="pub-authors"><strong>Khajeh A</strong>, Rahman MH, Liu T, Panwar P, Menezes PL, Martini A</p>
+    <p class="pub-venue"><em>Journal of Molecular Liquids 352, 118700</em> <span class="pub-cat">Reactive MD & tribology</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="trib" data-sel="0">
+  <span class="pub-year">2022</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1007/s11249-022-01583-6">Review of molecular dynamics simulations of phosphonium ionic liquid lubricants</a></p>
+    <p class="pub-authors">Liu T, Panwar P, <strong>Khajeh A</strong>, Rahman MH, Menezes PL, Martini A</p>
+    <p class="pub-venue"><em>Tribology Letters 70, 44</em> <span class="pub-cat">Reactive MD & tribology</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="trib" data-sel="0">
+  <span class="pub-year">2022</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1016/j.triboint.2021.107331">Recent progress on phosphonium-based room temperature ionic liquids: Synthesis, properties, tribological performances and applications</a></p>
+    <p class="pub-authors">Rahman MH, <strong>Khajeh A</strong>, Panwar P, Patel M, Martini A, Menezes PL</p>
+    <p class="pub-venue"><em>Tribology International 167, 107331</em> <span class="pub-cat">Reactive MD & tribology</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="trib" data-sel="0">
+  <span class="pub-year">2021</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1021/acs.jpcc.0c10789">Thermal decomposition of tricresyl phosphate on ferrous surfaces</a></p>
+    <p class="pub-authors"><strong>Khajeh A</strong>, Bhuiyan FH, Mogonye JE, Pesce-Rodriguez RA, Berkebile S, Martini A</p>
+    <p class="pub-venue"><em>J. Phys. Chem. C 125, 5076–5087</em> <span class="pub-cat">Reactive MD & tribology</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="trib" data-sel="0">
+  <span class="pub-year">2021</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1021/acsami.0c18098">Origin of high friction at graphene step edges on graphite</a></p>
+    <p class="pub-authors">Chen Z, <strong>Khajeh A</strong>, Martini A, Kim SH</p>
+    <p class="pub-venue"><em>ACS Appl. Mater. Interfaces 13, 1895–1902</em> <span class="pub-cat">Reactive MD & tribology</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="trib" data-sel="0">
+  <span class="pub-year">2021</span>
+  <div class="pub-body">
+    <p class="pub-title">Investigating tribochemical reactions using reactive molecular dynamics simulations</p>
+    <p class="pub-authors"><strong>Khajeh A</strong></p>
+    <p class="pub-venue"><em>Ph.D. dissertation, University of California, Merced</em> <span class="pub-cat">Reactive MD & tribology</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="trib" data-sel="0">
+  <span class="pub-year">2020</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1021/acsami.0c08121">Identifying physical and chemical contributions to friction: A comparative study of chemically inert and active graphene step edges</a></p>
+    <p class="pub-authors">Chen Z§, <strong>Khajeh A§</strong>, Martini A, Kim SH</p>
+    <p class="pub-venue"><em>ACS Appl. Mater. Interfaces 12, 30007–30015</em> <span class="pub-cat">Reactive MD & tribology</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="trib" data-sel="0">
+  <span class="pub-year">2020</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1021/acs.jpcc.9b11787">Substituent effects on the thermal decomposition of phosphate esters on ferrous surfaces</a></p>
+    <p class="pub-authors">Ewen JP, Ayestarán Latorre C, Gattinoni C, <strong>Khajeh A</strong>, Moore JD, Remias JE, Martini A, Dini D</p>
+    <p class="pub-venue"><em>J. Phys. Chem. C 124, 9852–9865</em> <span class="pub-cat">Reactive MD & tribology</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="trib" data-sel="1">
+  <span class="pub-year">2019</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1126/sciadv.aaw0513">Chemical and physical origins of friction on surfaces with atomic steps</a></p>
+    <p class="pub-authors">Chen Z§, <strong>Khajeh A§</strong>, Martini A, Kim SH</p>
+    <p class="pub-venue"><em>Science Advances 5, eaaw0513</em> <span class="pub-cat">Reactive MD & tribology</span><span class="sel" title="Selected publication">Selected</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="trib" data-sel="0">
+  <span class="pub-year">2019</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1021/acsami.9b13261">Effect of ambient chemistry on friction at the basal plane of graphite</a></p>
+    <p class="pub-authors"><strong>Khajeh A</strong>, Chen Z, Kim SH, Martini A</p>
+    <p class="pub-venue"><em>ACS Appl. Mater. Interfaces 11, 40800–40807</em> <span class="pub-cat">Reactive MD & tribology</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="trib" data-sel="0">
+  <span class="pub-year">2019</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1021/acs.jpclett.9b02501">Effect of atomic corrugation on adhesion and friction: A model study with graphene step edges</a></p>
+    <p class="pub-authors">Chen Z, Vazirisereshk MR, <strong>Khajeh A</strong>, Martini A, Kim SH</p>
+    <p class="pub-venue"><em>J. Phys. Chem. Lett. 10, 6455–6461</em> <span class="pub-cat">Reactive MD & tribology</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="trib" data-sel="0">
+  <span class="pub-year">2019</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1063/1.5093425">Synergistic effect of nanodiamonds on the adsorption of tricresyl phosphate on iron oxide surfaces</a></p>
+    <p class="pub-authors"><strong>Khajeh A</strong>, Krim J, Martini A</p>
+    <p class="pub-venue"><em>Appl. Phys. Lett. 114, 171602</em> <span class="pub-cat">Reactive MD & tribology</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="trib" data-sel="0">
+  <span class="pub-year">2019</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1021/acs.jpcc.9b02394">Statistical analysis of tri-cresyl phosphate conversion on an iron oxide surface using reactive molecular dynamics simulations</a></p>
+    <p class="pub-authors"><strong>Khajeh A</strong>, Hu X, Mohammadtabar K, Shin YK, van Duin ACT, Berkebile S, Martini A</p>
+    <p class="pub-venue"><em>J. Phys. Chem. C 123, 12886–12893</em> <span class="pub-cat">Reactive MD & tribology</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="trib" data-sel="0">
+  <span class="pub-year">2019</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1016/j.triboint.2018.11.001">Mechanical response of gasoline soot nanoparticles under compression: An in situ TEM study</a></p>
+    <p class="pub-authors">Jenei IZ, Dassenoy F, Epicier T, <strong>Khajeh A</strong>, Martini A, Uy D, Ghaednia H, Gangopadhyay A</p>
+    <p class="pub-venue"><em>Tribology International 131, 446–453</em> <span class="pub-cat">Reactive MD & tribology</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="trib" data-sel="0">
+  <span class="pub-year">2018</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1021/acs.langmuir.8b00315">Mechanochemical association reaction of interfacial molecules driven by shear</a></p>
+    <p class="pub-authors"><strong>Khajeh A</strong>, He X, Yeon J, Kim SH, Martini A</p>
+    <p class="pub-venue"><em>Langmuir 34, 5971–5977</em> <span class="pub-cat">Reactive MD & tribology</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="trib" data-sel="0">
+  <span class="pub-year">2018</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1088/1361-6528/aaa2aa">Mechanical characterization of diesel soot nanoparticles: in situ compression in a transmission electron microscope and simulations</a></p>
+    <p class="pub-authors">Jenei IZ, Dassenoy F, Epicier T, <strong>Khajeh A</strong>, Martini A, Uy D, Ghaednia H, Gangopadhyay A</p>
+    <p class="pub-venue"><em>Nanotechnology 29, 085703</em> <span class="pub-cat">Reactive MD & tribology</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="fea" data-sel="0">
+  <span class="pub-year">2014</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1016/j.commatsci.2014.03.018">The finite element analysis of the surface transformation hardening process using the power control strategy in order to reduce edge effect problems</a></p>
+    <p class="pub-authors"><strong>Khajeh A</strong>, Jenabali Jahromi SA</p>
+    <p class="pub-venue"><em>Computational Materials Science 88, 151–155</em> <span class="pub-cat">FEA & manufacturing</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="fea" data-sel="0">
+  <span class="pub-year">2012</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1016/j.matdes.2011.08.020">Effect of different pre-heat treatment processes on the hardness of AISI 410 martensitic stainless steels surface-treated using pulsed Nd:YAG laser</a></p>
+    <p class="pub-authors">Jenabali Jahromi SA, <strong>Khajeh A</strong>, Mahmoudi B</p>
+    <p class="pub-venue"><em>Materials &amp; Design 34, 857–862</em> <span class="pub-cat">FEA & manufacturing</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="fea" data-sel="0">
+  <span class="pub-year">2010</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1016/j.matdes.2009.07.035">Experimental and finite element investigation of semi-constrained groove pressing process</a></p>
+    <p class="pub-authors">Shirdel A, <strong>Khajeh A</strong>, Moshksar MM</p>
+    <p class="pub-venue"><em>Materials &amp; Design 31, 946–950</em> <span class="pub-cat">FEA & manufacturing</span></p>
+  </div>
+</li>
+<li class="pub" data-cat="fea" data-sel="0">
+  <span class="pub-year">2009</span>
+  <div class="pub-body">
+    <p class="pub-title"><a href="https://doi.org/10.1016/j.matdes.2008.05.014">Investigation of cold pressure welding of aluminum powder to internal surface of aluminum tube</a></p>
+    <p class="pub-authors">Danesh Manesh H, Mashreghi A, Ehtemam Haghighi S, <strong>Khajeh A</strong></p>
+    <p class="pub-venue"><em>Materials &amp; Design 30, 723–726</em> <span class="pub-cat">FEA & manufacturing</span></p>
+  </div>
+</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-h">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="exp-h">Experience and education</h2></div>
+      <ul class="exp"><li><time>Sep 2025 – present</time><div><h3>Research Scientist, Human-Centered AI</h3><p class="org">Toyota Research Institute · Los Altos, CA</p><p class="what">Agentic research systems, generative agent simulation of wellbeing, privacy-preserving models for workforce analytics. Co-investigator on a multi-year collaboration with the University of Washington on AI that supports long-term human autonomy and growth.</p></div></li>
+<li><time>Sep 2021 – Jun 2025</time><div><h3>Research Scientist, Accelerated Materials Design &amp; Discovery</h3><p class="org">Toyota Research Institute · Los Altos, CA</p><p class="what">Led a polymer discovery framework built on conditional generative models and automated MD. Worked with MIT groups on ion transport in polymer and liquid electrolytes. Built LLM pipelines that extract synthesis knowledge from the literature.</p></div></li>
+<li><time>Summer 2021</time><div><h3>Research Intern, Accelerated Materials Design &amp; Discovery</h3><p class="org">Toyota Research Institute</p><p class="what">ML on MD-derived descriptors for early prediction of ionic conductivity; contributed to a database of more than 6,000 polymer–LiTFSI systems.</p></div></li>
+<li><time>Summer 2020</time><div><h3>Computational Chemistry Intern</h3><p class="org">Zymergen · Emeryville, CA</p><p class="what">MD simulations of structure–property relationships in biopolymers.</p></div></li>
+<li><time>2016 – 2021</time><div><h3>Ph.D., Mechanical Engineering</h3><p class="org">University of California, Merced</p><p class="what">Advisor: Prof. Ashlie Martini. Dissertation: Investigating tribochemical reactions using reactive molecular dynamics simulations.</p></div></li>
+<li><time>2005 – 2008</time><div><h3>M.S., Materials Science &amp; Engineering</h3><p class="org">Shiraz University</p><p class="what">Finite element analysis of backward extrusion, ironing and radial forging for seamless tubes.</p></div></li>
+<li><time>2001 – 2005</time><div><h3>B.S., Industrial Metallurgy</h3><p class="org">Shiraz University</p></div></li></ul>
+    </div>
+  </section>
+
+  <section id="talks" aria-labelledby="talks-h">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="talks-h">Talks and patents</h2></div>
+      <div class="two">
+        <div><h3>Recent talks</h3><ul class="plain"><li><span class="t">Accelerating the discovery of solid polymer electrolytes using molecular dynamics simulations and generative AI</span><span class="m">Accelerate Conference, Vancouver (invited) · 2024</span></li>
+<li><span class="t">Harnessing generative AI and MD simulations for de novo design of high-conductivity polymer electrolytes</span><span class="m">Gordon Research Seminar on battery research, Ventura, CA · 2024</span></li>
+<li><span class="t">Evaluating and harnessing generative AI for the de novo design of high-conductivity solid polymer electrolytes</span><span class="m">ACS Spring, New Orleans · 2024</span></li>
+<li><span class="t">Early prediction of ion transport properties in solid polymer electrolytes using ML and MD descriptors</span><span class="m">ACS Fall, San Francisco · 2023</span></li>
+<li><span class="t">Early prediction of ion transport properties in MD simulations of solid polymer electrolytes using ML</span><span class="m">MRS Fall, Boston · 2022</span></li></ul></div>
+        <div><h3>Patent applications</h3><ul class="plain"><li><span class="t"><a href="https://patents.justia.com/patent/20250095796">Methods of designing polymers and polymers designed therefrom</a></span><span class="m">US 2025/0095796 A1 · Application 18/794,295, filed Aug 2024, published Mar 2025</span><span class="m">Khajeh A, Kwon HK, Schweigert D, Yang Z, Lei X, Ye W</span></li>
+<li><span class="t"><a href="https://patents.justia.com/patent/20240012964">Closed loop simulation platform for accelerated polymer electrolyte material discovery</a></span><span class="m">US 2024/0012964 A1 · Application 17/860,016, published Jan 2024</span><span class="m">Schweigert D, Kwon HK, Khajeh A</span></li></ul></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="contact" id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div>
+      <h2 id="contact-h">Get in touch</h2>
+      <p>I'm glad to hear about research collaborations, talks, and questions about my papers.</p>
+      <div class="mail">
+        <code id="email-addr">arash.khajeh@gmail.com</code>
+        <button type="button" id="copy-email">Copy email</button>
+        <a class="btn" href="mailto:arash.khajeh@gmail.com">Send email</a>
+      </div>
+      <p class="status" id="copy-status" aria-live="polite"></p>
+    </div>
+    <div class="profiles">
+      <a class="link-arrow" href="https://scholar.google.com/citations?user=y1fcaZsAAAAJ&amp;hl=en">Google Scholar</a>
+      <a class="link-arrow" href="https://www.linkedin.com/in/arash-khajeh-b4a28274/">LinkedIn</a>
+      <a class="link-arrow" href="https://medium.com/toyotaresearch/designing-new-polymers-with-ai-31645c39316b">Designing new polymers with AI (TRI blog)</a>
+    </div>
+  </div>
+</section>
+<template id="chart-hhai"><svg viewBox="0 0 400 250" role="img" aria-label="Bar chart from Table 1: share of simulated agents at high risk in the final month. Overwork: baseline 81%, structural 70%, communication 77%, both 68%. Promotion or bias: baseline 35%, structural 18%, communication 14%, both 6%."><line x1="46" y1="178.0" x2="392" y2="178.0" stroke="var(--line-strong)" stroke-width="1.1"/><text x="40" y="182.0" text-anchor="end" class="svg-s">0%</text><line x1="46" y1="104.0" x2="392" y2="104.0" stroke="var(--line)" stroke-width="1.1"/><text x="40" y="108.0" text-anchor="end" class="svg-s">50%</text><line x1="46" y1="30.0" x2="392" y2="30.0" stroke="var(--line)" stroke-width="1.1"/><text x="40" y="34.0" text-anchor="end" class="svg-s">100%</text><rect x="59.0" y="58.1" width="30" height="119.9" rx="2" fill="var(--muted)" fill-opacity="0.45"/><text x="74.0" y="52.1" text-anchor="middle" class="svg-s" style="fill:var(--ink)">81%</text><rect x="98.0" y="74.4" width="30" height="103.6" rx="2" fill="var(--teal)" fill-opacity="0.45"/><text x="113.0" y="68.4" text-anchor="middle" class="svg-s" style="fill:var(--ink)">70%</text><rect x="137.0" y="64.0" width="30" height="114.0" rx="2" fill="var(--teal)" fill-opacity="1"/><text x="152.0" y="58.0" text-anchor="middle" class="svg-s" style="fill:var(--ink)">77%</text><rect x="176.0" y="77.4" width="30" height="100.6" rx="2" fill="var(--li)" fill-opacity="1"/><text x="191.0" y="71.4" text-anchor="middle" class="svg-s" style="fill:var(--ink)">68%</text><text x="132.5" y="198" text-anchor="middle" class="svg-t">Overwork</text><rect x="232.0" y="126.2" width="30" height="51.8" rx="2" fill="var(--muted)" fill-opacity="0.45"/><text x="247.0" y="120.2" text-anchor="middle" class="svg-s" style="fill:var(--ink)">35%</text><rect x="271.0" y="151.4" width="30" height="26.6" rx="2" fill="var(--teal)" fill-opacity="0.45"/><text x="286.0" y="145.4" text-anchor="middle" class="svg-s" style="fill:var(--ink)">18%</text><rect x="310.0" y="157.3" width="30" height="20.7" rx="2" fill="var(--teal)" fill-opacity="1"/><text x="325.0" y="151.3" text-anchor="middle" class="svg-s" style="fill:var(--ink)">14%</text><rect x="349.0" y="169.1" width="30" height="8.9" rx="2" fill="var(--li)" fill-opacity="1"/><text x="364.0" y="163.1" text-anchor="middle" class="svg-s" style="fill:var(--ink)">6%</text><text x="305.5" y="198" text-anchor="middle" class="svg-t">Promotion / bias</text><text x="46" y="18" class="svg-s">agents at high risk, final month</text><rect x="60" y="212" width="11" height="11" rx="2" fill="var(--muted)" fill-opacity="0.45"/><text x="77" y="222" class="svg-s">baseline</text><rect x="230" y="212" width="11" height="11" rx="2" fill="var(--teal)" fill-opacity="0.45"/><text x="247" y="222" class="svg-s">structural</text><rect x="60" y="230" width="11" height="11" rx="2" fill="var(--teal)" fill-opacity="1"/><text x="77" y="240" class="svg-s">communication</text><rect x="230" y="230" width="11" height="11" rx="2" fill="var(--li)" fill-opacity="1"/><text x="247" y="240" class="svg-s">both</text></svg></template>
+<template id="chart-dd"><svg viewBox="0 0 400 250" role="img" aria-label="Simplified chart: ionic conductivity of generated polymers in two generation cycles, with many exceeding the PEO reference line"><line x1="56" y1="190" x2="386" y2="190" stroke="var(--line-strong)" stroke-width="1.2"/><line x1="56" y1="30" x2="56" y2="190" stroke="var(--line-strong)" stroke-width="1.2"/><text x="48" y="194.0" text-anchor="end" class="svg-s">0</text><text x="48" y="121.3" text-anchor="end" class="svg-s">1</text><line x1="56" y1="117.3" x2="386" y2="117.3" stroke="var(--line)" stroke-width="1"/><text x="48" y="48.5" text-anchor="end" class="svg-s">2</text><line x1="56" y1="44.5" x2="386" y2="44.5" stroke="var(--line)" stroke-width="1"/><line x1="56" y1="106.4" x2="386" y2="106.4" stroke="var(--ink)" stroke-width="1.3" stroke-dasharray="6 4"/><rect x="62" y="87.4" width="40" height="16" rx="3" fill="var(--surface)"/><text x="66" y="99.4" class="svg-s" style="fill:var(--ink)">PEO</text><circle cx="68.0" cy="187.8" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="72.6" cy="187.6" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="77.3" cy="187.1" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="81.9" cy="186.3" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="86.5" cy="185.2" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="91.2" cy="183.8" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="95.8" cy="182.1" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="100.4" cy="180.2" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="105.1" cy="178.0" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="109.7" cy="175.5" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="114.3" cy="172.8" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="119.0" cy="169.8" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="123.6" cy="166.5" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="128.2" cy="163.0" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="132.9" cy="159.3" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="137.5" cy="155.3" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="142.1" cy="151.1" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="146.8" cy="146.6" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="151.4" cy="141.8" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="156.0" cy="136.9" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="160.7" cy="131.6" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="165.3" cy="126.2" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="169.9" cy="120.5" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="174.6" cy="114.6" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="179.2" cy="108.4" r="3.2" fill="var(--teal)" fill-opacity="0.55"/><circle cx="183.8" cy="102.0" r="4" fill="var(--teal)" fill-opacity="1"/><circle cx="188.5" cy="95.3" r="4" fill="var(--teal)" fill-opacity="1"/><circle cx="193.1" cy="88.5" r="4" fill="var(--teal)" fill-opacity="1"/><circle cx="197.7" cy="81.4" r="4" fill="var(--teal)" fill-opacity="1"/><circle cx="202.3" cy="74.0" r="4" fill="var(--teal)" fill-opacity="1"/><circle cx="207.0" cy="66.5" r="4" fill="var(--teal)" fill-opacity="1"/><circle cx="211.6" cy="58.7" r="4" fill="var(--teal)" fill-opacity="1"/><circle cx="216.2" cy="50.6" r="4" fill="var(--teal)" fill-opacity="1"/><circle cx="220.9" cy="42.4" r="4" fill="var(--teal)" fill-opacity="1"/><circle cx="238.9" cy="178.4" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="243.7" cy="176.2" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="248.5" cy="173.5" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="253.3" cy="170.6" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="258.1" cy="167.6" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="262.9" cy="164.4" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="267.7" cy="161.1" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="272.5" cy="157.8" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="277.3" cy="154.4" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="282.1" cy="150.9" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="286.9" cy="147.4" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="291.6" cy="143.8" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="296.4" cy="140.1" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="301.2" cy="136.5" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="306.0" cy="132.7" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="310.8" cy="129.0" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="315.6" cy="125.1" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="320.4" cy="121.3" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="325.2" cy="117.4" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="330.0" cy="113.5" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="334.8" cy="109.6" r="3.2" fill="var(--li)" fill-opacity="0.55"/><circle cx="339.6" cy="105.6" r="4" fill="var(--li)" fill-opacity="1"/><circle cx="344.4" cy="101.6" r="4" fill="var(--li)" fill-opacity="1"/><circle cx="349.2" cy="97.6" r="4" fill="var(--li)" fill-opacity="1"/><circle cx="354.0" cy="93.5" r="4" fill="var(--li)" fill-opacity="1"/><circle cx="358.8" cy="89.5" r="4" fill="var(--li)" fill-opacity="1"/><circle cx="363.6" cy="85.4" r="4" fill="var(--li)" fill-opacity="1"/><circle cx="368.4" cy="81.2" r="4" fill="var(--li)" fill-opacity="1"/><circle cx="373.2" cy="77.1" r="4" fill="var(--li)" fill-opacity="1"/><circle cx="378.0" cy="72.9" r="4" fill="var(--li)" fill-opacity="1"/><text x="144.4" y="210" text-anchor="middle" class="svg-s" style="fill:var(--teal)">cycle 1</text><text x="308.4" y="210" text-anchor="middle" class="svg-s" style="fill:var(--li)">cycle 2</text><text x="386" y="18" text-anchor="end" class="svg-s">generated polymers, sorted · 353 K</text><text x="18" y="110.0" text-anchor="middle" class="svg-s" transform="rotate(-90 18 110.0)">σ (mS/cm)</text></svg></template>
+<dialog class="fig" id="fig-dialog" aria-labelledby="fig-cap">
+  <div class="fig-bar"><button type="button" id="fig-close">Close</button></div>
+  <figure><img id="fig-img" src="" alt=""><div id="fig-chart" class="fig-chart" hidden></div><figcaption id="fig-cap"></figcaption></figure>
+</dialog>
+<footer><div class="wrap"><span>© <span id="year">2026</span> Arash Khajeh</span><span>Views are my own.</span></div></footer>
+
+<script>
+(function(){
+  // ---- publication filters
+  var chips = document.querySelectorAll('.chip');
+  var pubs = document.querySelectorAll('.pub');
+  var countEl = document.getElementById('pub-count');
+  function apply(f){
+    var n = 0;
+    pubs.forEach(function(p){
+      var show = f === 'all' || (f === 'sel' ? p.dataset.sel === '1' : p.dataset.cat === f);
+      p.hidden = !show; if (show) n++;
+    });
+    chips.forEach(function(c){ c.setAttribute('aria-pressed', c.dataset.f === f ? 'true' : 'false'); });
+    if (countEl) countEl.textContent = 'Showing ' + n + ' of ' + pubs.length;
+  }
+  chips.forEach(function(c){ c.addEventListener('click', function(){ apply(c.dataset.f); }); });
+
+  // ---- copy email
+  var btn = document.getElementById('copy-email');
+  var addr = document.getElementById('email-addr');
+  var status = document.getElementById('copy-status');
+  if (btn && addr){
+    btn.addEventListener('click', function(){
+      var text = addr.textContent.trim();
+      function fallback(){
+        var r = document.createRange(); r.selectNodeContents(addr);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        status.textContent = 'Selected. Press Ctrl+C or ⌘C to copy.';
+      }
+      try {
+        navigator.clipboard.writeText(text).then(function(){ status.textContent = 'Email address copied.'; }, fallback);
+      } catch (err) { fallback(); }
+    });
+  }
+
+  // ---- year
+  var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+
+
+  // ---- original-figure dialog
+  var dlg = document.getElementById('fig-dialog');
+  if (dlg){
+    var fimg = document.getElementById('fig-img'), fcap = document.getElementById('fig-cap');
+    document.querySelectorAll('.fig-open').forEach(function(b){
+      b.addEventListener('click', function(){
+        var fchart = document.getElementById('fig-chart');
+        if (b.dataset.tpl){ var tp = document.getElementById(b.dataset.tpl); fchart.innerHTML = ''; fchart.appendChild(tp.content.cloneNode(true)); fchart.hidden = false; fimg.hidden = true; fimg.removeAttribute('src'); }
+        else { fchart.hidden = true; fchart.innerHTML = ''; fimg.hidden = false; fimg.src = b.dataset.src; fimg.alt = b.dataset.alt; }
+        fcap.textContent = b.dataset.credit;
+        if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+      });
+    });
+    var closeDlg = function(){ if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); };
+    document.getElementById('fig-close').addEventListener('click', closeDlg);
+    dlg.addEventListener('click', function(ev){ if (ev.target === dlg) closeDlg(); });
+  }
+  // ---- PEO chain animation: -(CH2-CH2-O)n- with Li+ coordinated by ether oxygens
+  var cv = document.getElementById('md');
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext('2d');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var paused = reduce;
+  var W = 0, H = 0, dpr = 1, t = 0, visible = true, raf = 0;
+  var atoms = [], oIdx = [], ions = [], anions = [], colors = {}, P = [];
+  var STEP = 9.6, ZIG = 4.4;
+
+  function readColors(){
+    var cs = getComputedStyle(document.documentElement);
+    var g = function(n){ return cs.getPropertyValue(n).trim(); };
+    colors = { c: g('--muted'), o: g('--li'), h: g('--line-strong'), bond: g('--line-strong'), ion: g('--ion'), ring: g('--line-strong') };
+  }
+  function seeded(s){ return function(){ s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }; }
+  function build(){
+    var r = cv.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = r.width; H = r.height;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var rand = seeded(42);
+    atoms = []; oIdx = [];
+    var n = Math.ceil((W + 80) / STEP);
+    for (var i = 0; i < n; i++){
+      var kind = (i % 3 === 2) ? 'O' : 'C';
+      atoms.push({ x0: -40 + i * STEP, kind: kind, ph: rand() * 6.283 });
+      if (kind === 'O') oIdx.push(i);
+    }
+    ions = [];
+    var nIons = Math.max(3, Math.round(W / 190));
+    for (var k = 0; k < nIons; k++){
+      var site = Math.floor((k + 0.5) / nIons * oIdx.length);
+      ions.push({ site: site, from: site, p: 1, wait: 40 + rand() * 220, rand: seeded(100 + k), trail: [] });
+    }
+    anions = [];
+    var nA = Math.max(4, Math.round(W / 130));
+    for (var a = 0; a < nA; a++){
+      anions.push({ x: rand() * W, y: rand() < 0.5 ? 14 + rand() * 22 : H - 14 - rand() * 22, vx: (rand() - 0.5) * 0.22, vy: (rand() - 0.5) * 0.1, rot: rand() * 6.283 });
+    }
+  }
+  function center(x){ return H / 2 + Math.sin(x / 95 + t * 0.0045) * H * 0.17 + Math.sin(x / 41 - t * 0.007 + 1.3) * H * 0.06; }
+  function layout(){
+    P = [];
+    for (var i = 0; i < atoms.length; i++){
+      var a = atoms[i], x = a.x0, y = center(x);
+      var dy = (center(x + 1) - center(x - 1)) / 2, len = Math.sqrt(1 + dy * dy);
+      var nx = -dy / len, ny = 1 / len, s = (i % 2) ? 1 : -1;
+      var jx = Math.cos(a.ph + t * 0.08) * 0.6, jy = Math.sin(a.ph * 1.3 + t * 0.07) * 0.6;
+      P.push({ x: x + nx * ZIG * s + jx, y: y + ny * ZIG * s + jy, nx: nx * s, ny: ny * s });
+    }
+  }
+  function ionPos(ion){
+    var a = P[oIdx[ion.from]], b = P[oIdx[ion.site]];
+    var e = ion.p < 0.5 ? 2 * ion.p * ion.p : 1 - Math.pow(-2 * ion.p + 2, 2) / 2;
+    var ax = a.x + a.nx * 10, ay = a.y + a.ny * 10, bx = b.x + b.nx * 10, by = b.y + b.ny * 10;
+    var lift = Math.sin(Math.PI * e) * 14;
+    var mx = (a.nx + b.nx) / 2, my = (a.ny + b.ny) / 2;
+    return [ax + (bx - ax) * e + mx * lift, ay + (by - ay) * e + my * lift];
+  }
+  function dot(x, y, r, c){ ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fillStyle = c; ctx.fill(); }
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+    layout();
+    // TFSI- anions: faint rings drifting in the background
+    ctx.lineWidth = 1.3; ctx.strokeStyle = colors.ring;
+    anions.forEach(function(a){
+      if (!paused){ a.x += a.vx; a.y += a.vy; if (a.x < -10) a.x = W + 10; if (a.x > W + 10) a.x = -10; if (a.y < 8 || a.y > H - 8) a.vy *= -1; }
+      ctx.beginPath(); ctx.arc(a.x, a.y, 4.5, 0, 6.283); ctx.stroke();
+    });
+    // backbone bonds
+    ctx.strokeStyle = colors.bond; ctx.lineWidth = 2; ctx.lineJoin = 'round'; ctx.beginPath();
+    P.forEach(function(p, i){ if (i) ctx.lineTo(p.x, p.y); else ctx.moveTo(p.x, p.y); });
+    ctx.stroke();
+    // hydrogens on each CH2
+    ctx.lineWidth = 1;
+    for (var i = 0; i < P.length; i++){
+      if (atoms[i].kind !== 'C') continue;
+      var p = P[i];
+      for (var s = -1; s <= 1; s += 2){
+        var c = Math.cos(0.62 * s), sn = Math.sin(0.62 * s);
+        var hx = p.x + 7.4 * (p.nx * c - p.ny * sn), hy = p.y + 7.4 * (p.nx * sn + p.ny * c);
+        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(hx, hy); ctx.stroke();
+        dot(hx, hy, 1.9, colors.h);
+      }
+    }
+    // heavy atoms
+    for (var j = 0; j < P.length; j++){
+      if (atoms[j].kind === 'O') dot(P[j].x, P[j].y, 4.7, colors.o); else dot(P[j].x, P[j].y, 3.8, colors.c);
+    }
+    // Li+ ions
+    ions.forEach(function(ion){
+      if (!paused){
+        if (ion.p >= 1){
+          ion.wait -= 1;
+          if (ion.wait <= 0){
+            var step = (ion.rand() < 0.5 ? -1 : 1) * (1 + (ion.rand() < 0.3 ? 1 : 0));
+            var nk = ion.site + step;
+            var ok = nk > 0 && nk < oIdx.length - 1 && atoms[oIdx[nk]].x0 > 24 && atoms[oIdx[nk]].x0 < W - 24;
+            if (ok){ ion.from = ion.site; ion.site = nk; ion.p = 0; }
+            ion.wait = 110 + ion.rand() * 260;
+          }
+        } else { ion.p = Math.min(1, ion.p + 0.022); }
+      }
+      var q = ionPos(ion);
+      if (!paused){ ion.trail.push(q); if (ion.trail.length > 30) ion.trail.shift(); }
+      // coordination to nearby ether oxygens
+      ctx.save(); ctx.setLineDash([2, 3]); ctx.strokeStyle = colors.ion; ctx.globalAlpha = 0.55; ctx.lineWidth = 1;
+      oIdx.forEach(function(ai){
+        var o = P[ai], dx = o.x - q[0], dy = o.y - q[1];
+        if (dx * dx + dy * dy < 26 * 26){ ctx.beginPath(); ctx.moveTo(q[0], q[1]); ctx.lineTo(o.x, o.y); ctx.stroke(); }
+      });
+      ctx.restore();
+      if (ion.trail.length > 1){
+        ctx.save(); ctx.strokeStyle = colors.ion; ctx.globalAlpha = 0.22; ctx.lineWidth = 2; ctx.beginPath();
+        ion.trail.forEach(function(pt, idx){ if (idx) ctx.lineTo(pt[0], pt[1]); else ctx.moveTo(pt[0], pt[1]); });
+        ctx.stroke(); ctx.restore();
+      }
+      ctx.save(); ctx.globalAlpha = 0.16; dot(q[0], q[1], 10, colors.ion); ctx.restore();
+      dot(q[0], q[1], 5.4, colors.ion);
+    });
+  }
+  function loop(){ t += 1; draw(); if (visible && !paused) raf = requestAnimationFrame(loop); }
+  function start(){ cancelAnimationFrame(raf); if (paused) { draw(); } else { raf = requestAnimationFrame(loop); } }
+  var tog = document.getElementById('md-toggle');
+  function label(){ if (tog){ tog.textContent = paused ? 'Play animation' : 'Pause animation'; tog.setAttribute('aria-pressed', paused ? 'true' : 'false'); } }
+  if (tog){ tog.addEventListener('click', function(){ paused = !paused; label(); start(); }); }
+  label();
+
+  readColors(); build(); t = 120; draw(); start();
+  window.addEventListener('resize', function(){ build(); draw(); });
+  if (window.matchMedia){
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    var onTheme = function(){ readColors(); draw(); };
+    if (mq.addEventListener) mq.addEventListener('change', onTheme); else if (mq.addListener) mq.addListener(onTheme);
+  }
+  new MutationObserver(function(){ readColors(); draw(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(entries){ visible = entries[0].isIntersecting; if (visible) start(); else cancelAnimationFrame(raf); }).observe(cv);
+  }
+})();
+
+</script>
+</body>
+</html>
